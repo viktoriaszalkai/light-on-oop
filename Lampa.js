@@ -4,12 +4,13 @@ export default class Lampa{
     #diveElem; /* html elem, ez jeleníti meg a lámpát */
     #szuloElem;
 
-    constructor(id, allapot, szuloElem){
+    constructor(id, allapot, divElem, szuloElem){
         this.#id = id;
         this.#allapot = allapot;
         this.#szuloElem = szuloElem;
+        this.#diveElem = divElem;
 
-        this.#megjelenit;
+        this.#megjelenit();
     }
 
     #megjelenit() {

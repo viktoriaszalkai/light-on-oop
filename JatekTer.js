@@ -14,9 +14,10 @@ export default class JatekTer {
 
   #megjelenit() {
     const szuloElem = $(".jatekter");
+    const divElem = $(".jatekter > div"); 
     szuloElem.empty();
-    this.#allapotLista.forEach((ertek, index) => {
-      const lampa = new Lampa(index, ertek, szuloElem);
+    this.#allapotLista.forEach((allapot, index) => {
+      const lampa = new Lampa(index, allapot, divElem ,szuloElem);
     });
   }
 
