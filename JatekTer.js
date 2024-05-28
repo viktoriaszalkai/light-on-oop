@@ -1,3 +1,5 @@
+import Lampa from "./Lampa.js";
+
 export default class JatekTer {
   #db = 0; /* felkapcsolt lámpák száma */
   #allapotLista = []; /* melyik lámpa ég, melyik nem */
@@ -6,20 +8,30 @@ export default class JatekTer {
 
   constructor() {
     this.#setAllapotLista();
+
+    this.#megjelenit();
+  }
+
+  #megjelenit() {
+    const szuloElem = $(".jatekter");
+    szuloElem.empty();
+    this.#allapotLista.forEach((ertek, index) => {
+      const lampa = new Lampa(index, ertek, szuloElem);
+    });
   }
 
   #setAllapotLista() {
     /* beállítja a lista értékeit véletlenszerűen true/false, hossza méret*méret */
-    const ALLAPOTLISTA = new Array(this.#meret * this.#meret);
-    for (let index = 0; index < ALLAPOTLISTA.length; index++) {
+    this.#allapotLista = new Array(this.#meret * this.#meret);
+    for (let index = 0; index < this.#allapotLista.length; index++) {
       let szam = Math.floor(Math.random() * 2);
       if (szam == 1) {
-        ALLAPOTLISTA[index] = true;
+        this.#allapotLista[index] = true;
       } else if (szam == 0) {
-        ALLAPOTLISTA[index] = false;
+        this.#allapotLista[index] = false;
       }
     }
-    console.log(ALLAPOTLISTA);
+    console.log(this.#allapotLista);
   }
 
   #szomszedokKeresese(id) {

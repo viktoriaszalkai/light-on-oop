@@ -8,14 +8,33 @@ export default class Lampa{
         this.#id = id;
         this.#allapot = allapot;
         this.#szuloElem = szuloElem;
+
+        this.#megjelenit;
     }
+
+    #megjelenit() {
+        let txt = `<div><p>${this.#allapot}</p></div>`;
+        this.#szuloElem.append(txt);
+    }
+    
 
     setAllapot(){
         /* a lápa állapotát az ellenkezőre váltja, meghívja a szinBeallit metódust */
+        if(this.#allapot == true){
+            this.#szinBeallit();
+            this.#allapot = false
+        }else{
+            this.#szinBeallit();
+            this.#allapot = true;
+        }
     }
 
     #szinBeallit(){
-        /* az elem állapotától függően változtatja a színét */
+        if(this.#allapot == true){
+            this.addClass(".fekete")
+        }else{
+            this.addClass(".feher")
+        }
     }
 
     #kattintasTrigger(){
