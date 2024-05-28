@@ -14,9 +14,8 @@ export default class Lampa {
     /* HA RÁKATTINTUNK AZ ELEMRE */
     this.#divElem = this.#szuloElem.children("div:last-child");
     this.#divElem.on("click", () => {
-      if (this.#allapot == true) {
-        this.#kattintasTrigger("kapcsolas");
-      }
+      this.#kattintasTrigger("kapcsolas");
+      console.log(this.#id);
     });
   }
 

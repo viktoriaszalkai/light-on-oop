@@ -8,8 +8,13 @@ export default class JatekTer {
 
   constructor() {
     this.#setAllapotLista();
-
     this.#megjelenit();
+
+    $(window).on("kapcsol", (event) => {
+      console.log(event.detail);
+      let id = event.detail;
+      this.#szomszedokKeresese(id);
+    });
   }
 
   #megjelenit() {
@@ -36,10 +41,22 @@ export default class JatekTer {
     }
     console.log(this.#allapotLista);
   }
+  
 
   #szomszedokKeresese(id) {
+    const elotteN = this.#allapotLista[id] - this.#meret;
+    const elotte1 = this.#allapotLista[id] - 1;
+    const utanaN = this.#allapotLista[id] + this.#meret;
+    const utana1 = this.#allapotLista[id] + 1;
     /* megkeresi az aktuális elem szomoszédait, és megváltoztatja az állapotukat*/
-  }
+    
+    this.#allapotLista[elotte1].setAllapot();
+    this.#allapotLista[elotteN].setAllapot();
+    this.#allapotLista[utana1].setAllapot();
+    this.#allapotLista[utanaN].setAllapot();
+  console.log("szomszedgenyo");
+  this.#megjelenit();
+}
 
   #init() {
     /* új játékoteret hoz létre, alapértékre állítja az adattagokat, új játék */
