@@ -18,7 +18,9 @@ export default class JatekTer {
     szuloElem.empty();
     this.#allapotLista.forEach((allapot, index) => {
       const lampa = new Lampa(index, allapot, divElem ,szuloElem);
+      lampa.setAllapot();
     });
+    
   }
 
   #setAllapotLista() {
