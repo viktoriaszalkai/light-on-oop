@@ -42,17 +42,18 @@ export default class JatekTer {
   }
 
   #szomszedokKeresese(id) {
-    const elotteN = this.#allapotLista.id - this.#meret;
-    const elotte1 = this.#allapotLista.id - 1;
-    const utanaN = this.#allapotLista.id + this.#meret;
-    const utana1 = this.#allapotLista.id + 1;
+    const elotteN = id - this.#meret;
+    const elotte1 = id - 1;
+    const utanaN = Number(id) + Number(this.#meret);
+    const utana1 = Number(id) + 1;
     /* megkeresi az aktuális elem szomoszédait, és megváltoztatja az állapotukat*/
-
     this.#allapotLista[elotte1] = !this.#allapotLista[elotte1];
     this.#allapotLista[elotteN] = !this.#allapotLista[elotteN];
     this.#allapotLista[utana1] = !this.#allapotLista[utana1];
-    this.#allapotLista[utana1] = !this.#allapotLista[utanaN];
+    this.#allapotLista[utanaN] = !this.#allapotLista[utanaN];
     this.#allapotLista[id] = !this.#allapotLista[id];
+    console.log(this.#allapotLista);
+    console.log(id, utana1, utanaN);
     this.#megjelenit();
   }
 

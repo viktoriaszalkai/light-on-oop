@@ -2,21 +2,25 @@ main{
     width: 800px;
     margin: auto;
     text-align: center;
-    color: rgb(176, 136, 144);
+    color: pink;
     font-style: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .fekete{
     background-color: black;
+    
 }
 .feher{
-    background-color: white;
+    background-color:pink;
+    box-shadow: 0 0 50px pink;
+    border: inherit !important;
+    border-color: transparent;
 }
 .jatekter{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 5px;
+    gap: 7px;
 }
 .jatekter div{
     aspect-ratio: 1; /* oldlarány */
