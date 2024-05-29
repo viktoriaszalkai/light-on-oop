@@ -19,13 +19,12 @@ export default class JatekTer {
 
   #megjelenit() {
     const szuloElem = $(".jatekter");
-    const divElem = $(".jatekter > div"); 
+    const divElem = $(".jatekter > div");
     szuloElem.empty();
     this.#allapotLista.forEach((allapot, index) => {
-      const lampa = new Lampa(index, allapot, divElem ,szuloElem);
+      const lampa = new Lampa(index, allapot, divElem, szuloElem);
       lampa.setAllapot();
     });
-    
   }
 
   #setAllapotLista() {
@@ -41,22 +40,21 @@ export default class JatekTer {
     }
     console.log(this.#allapotLista);
   }
-  
 
   #szomszedokKeresese(id) {
-    const elotteN = this.#allapotLista[id] - this.#meret;
-    const elotte1 = this.#allapotLista[id] - 1;
-    const utanaN = this.#allapotLista[id] + this.#meret;
-    const utana1 = this.#allapotLista[id] + 1;
+    const elotteN = this.#allapotLista.id - this.#meret;
+    const elotte1 = this.#allapotLista.id - 1;
+    const utanaN = this.#allapotLista.id + this.#meret;
+    const utana1 = this.#allapotLista.id + 1;
     /* megkeresi az aktuális elem szomoszédait, és megváltoztatja az állapotukat*/
-    
-    this.#allapotLista[elotte1].setAllapot();
-    this.#allapotLista[elotteN].setAllapot();
-    this.#allapotLista[utana1].setAllapot();
-    this.#allapotLista[utanaN].setAllapot();
-  console.log("szomszedgenyo");
-  this.#megjelenit();
-}
+
+    this.#allapotLista[elotte1] = !this.#allapotLista[elotte1];
+    this.#allapotLista[elotteN] = !this.#allapotLista[elotteN];
+    this.#allapotLista[utana1] = !this.#allapotLista[utana1];
+    this.#allapotLista[utana1] = !this.#allapotLista[utanaN];
+    this.#allapotLista[id] = !this.#allapotLista[id];
+    this.#megjelenit();
+  }
 
   #init() {
     /* új játékoteret hoz létre, alapértékre állítja az adattagokat, új játék */

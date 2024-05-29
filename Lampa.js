@@ -8,13 +8,13 @@ export default class Lampa {
     this.#id = id;
     this.#allapot = allapot;
     this.#szuloElem = szuloElem;
-    this.#divElem = divElem;
+    /*     this.#divElem = divElem; */
 
     this.#megjelenit();
     /* HA RÁKATTINTUNK AZ ELEMRE */
     this.#divElem = this.#szuloElem.children("div:last-child");
     this.#divElem.on("click", () => {
-      this.#kattintasTrigger("kapcsolas");
+      this.#kattintasTrigger("kapcsol");
       console.log(this.#id);
     });
   }
@@ -37,9 +37,9 @@ export default class Lampa {
 
   #szinBeallit() {
     if (this.#allapot == true) {
-      this.#divElem.addClass("fekete");
-    } else {
       this.#divElem.addClass("feher");
+    } else {
+      this.#divElem.addClass("fekete");
     }
   }
 
